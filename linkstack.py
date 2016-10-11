@@ -1,5 +1,8 @@
 from Tkinter import Tk, Label, Button, Entry, LEFT, RIGHT
 from ttk import *
+import sys
+
+
 
 
 class LinkStack:
@@ -40,7 +43,6 @@ class LinkStack:
 
 
     def pop(self):
-        print("Pop!")
         if len(self.stack):
             line = self.stack[self.pointer]
             self.link_input.delete(0, 'end')
@@ -59,5 +61,6 @@ class LinkStack:
 
 root = Tk()
 my_gui = LinkStack(root)
-root.iconbitmap('linkstack.ico')
+if 'win32' in sys.platform or 'win64' in sys.platform:
+    root.iconbitmap('linkstack.ico')
 root.mainloop()
