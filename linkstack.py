@@ -37,7 +37,7 @@ class LinkStack:
 
 
     def write_stack(self, stack):
-        txt = open('stack.txt', 'w')
+        txt = open('stack.txt', 'wb')
         for line in stack:
             txt.write('{}\r\n'.format(line))
 
@@ -47,7 +47,7 @@ class LinkStack:
             line = self.stack[self.pointer]
             self.link_input.delete(0, 'end')
             self.link_input.insert(0, line)
-            self.pointer = (self.pointer - 1) % self.stack_size
+            self.pointer = (self.pointer + 1) % self.stack_size
 
 
     def push(self):
